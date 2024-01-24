@@ -75,8 +75,8 @@ my-mfe-server/
 
 The project includes a Dockerfile for containerizing the application.
 
-- Build the Docker image: `docker build -t my-mfe-server-project .`
-- Run the Docker container: `docker run -p 8000:8000 my-mfe-server-project`
+- Build the Docker image: `docker build -t mfe-server .`
+- Run the Docker container: `docker run -p 8000:8000 mfe-server`
 
 ## Testing
 
