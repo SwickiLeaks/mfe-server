@@ -31,7 +31,7 @@ my-mfe-server/
 │ │ └── ...                           # Database access logic
 │ └── service/                        # Business logic
 │ └── ...                             # Business logic implementations
-├── pkg/ # Shared libraries (if needed)
+├── pkg/                              # Shared libraries (if needed)
 │ └── ...
 ├── static/                           # Static files directory for frontend assets
 │ └── ...                             # Bundled frontend files
@@ -81,11 +81,6 @@ The project includes a Dockerfile for containerizing the application.
 ## Testing
 
 - Run tests: `make test`.
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct,
-and the process for submitting pull requests.
 
 ## License
 
