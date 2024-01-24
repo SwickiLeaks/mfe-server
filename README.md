@@ -15,7 +15,7 @@ my-mfe-server/
 │ │ └── index.html                    # HTML file that serves as the entry point
 │ ├── webpack.config.js               # Webpack configuration
 │ ├── package.json
-│ └── ... # Other frontend configuration files
+│ └── ...                             # Other frontend configuration files
 └── server/                           # Backend (Golang) part of the project
 ├── cmd/
 │ └── server/
