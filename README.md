@@ -17,30 +17,30 @@ my-mfe-server/
 │ ├── package.json
 │ └── ...                             # Other frontend configuration files
 └── server/                           # Backend (Golang) part of the project
-├── cmd/
-│ └── server/
-│ └── main.go                         # The entry point of the server
-├── internal/
-│ ├── handler/                        # HTTP handlers
-│ │ └── ...
-│ ├── middleware/                     # HTTP middleware
-│ │ └── ...
-│ ├── model/                          # Data models
-│ │ └── ...                           # Data model definitions
-│ ├── repository/                     # Database interaction
-│ │ └── ...                           # Database access logic
-│ └── service/                        # Business logic
-│ └── ...                             # Business logic implementations
-├── pkg/                              # Shared libraries (if needed)
-│ └── ...
-├── static/                           # Static files directory for frontend assets
-│ └── ...                             # Bundled frontend files
-├── templates/                        # HTML templates (if needed)
-│ └── ...
-├── go.mod
-├── go.sum
-├── Dockerfile
-└── Makefile                          # Makefile for task automation
+  ├── cmd/
+  │ └── server/
+  │ └── main.go                         # The entry point of the server
+  ├── internal/
+  │ ├── handler/                        # HTTP handlers
+  │ │ └── ...
+  │ ├── middleware/                     # HTTP middleware
+  │ │ └── ...
+  │ ├── model/                          # Data models
+  │ │ └── ...                           # Data model definitions
+  │ ├── repository/                     # Database interaction
+  │ │ └── ...                           # Database access logic
+  │ └── service/                        # Business logic
+  │ └── ...                             # Business logic implementations
+  ├── pkg/                              # Shared libraries (if needed)
+  │ └── ...
+  ├── static/                           # Static files directory for frontend assets
+  │ └── ...                             # Bundled frontend files
+  ├── templates/                        # HTML templates (if needed)
+  │ └── ...
+  ├── go.mod
+  ├── go.sum
+  ├── Dockerfile
+  └── Makefile                          # Makefile for task automation
 ```
 
 ## Getting Started
