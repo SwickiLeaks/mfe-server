@@ -3,7 +3,7 @@
 # Define Go related variables
 GOBASE := $(shell pwd)
 GOBIN := $(GOBASE)/bin
-GOCMD := $(GOBASE)/cmd/server
+GOCMD := $(GOBASE)/cmd/app
 
 # Define Docker related variables
 DOCKER_IMG_NAME := mfe-server
@@ -19,7 +19,7 @@ build:
 	@GOBIN=$(GOBIN) go build -o $(GOBIN)/server $(GOCMD)
 
 # Run the project
-run:
+run: build
 	@echo "Running the server..."
 	@$(GOBIN)/server
 
