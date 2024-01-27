@@ -1,0 +1,12 @@
+{
+  "appshells": {
+    "mainAppShell": {
+      "navbar": "http://localhost:4201/main.js",
+      "content": "http://localhost:4200/main.js"
+    },
+    "otherAppShell": {
+      "navbar": "http://localhost:4201/main.js",
+      "content": "http://localhost:4200/main.js"
+    }
+  }
+}
