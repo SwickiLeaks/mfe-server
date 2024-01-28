@@ -9,7 +9,7 @@ GOCMD := $(GOBASE)/cmd/app
 DOCKER_IMG_NAME := mfe-server
 DOCKER_CONTAINER_NAME := mfe-server
 
-.PHONY: all build run clean docker-build docker-run docker-clean test
+.PHONY: all build run dev clean docker-build docker-run docker-clean test
 
 all: build
 
@@ -23,11 +23,21 @@ run: build
 	@echo "Running the server..."
 	@$(GOBIN)/server
 
+# Run the project with live reload
+dev: 
+	@echo "Running live reload server..."
+	@go run github.com/cosmtrek/air@latest \
+		--build.cmd "make build" --build.bin "${GOBIN}/server" --build.delay "100" \
+		--build.exclude_dir "" \
+		--build.include_ext "go, tpl, tmpl, html, css, scss, js, ts, sql, jpeg, jpg, gif, png, bmp, svg, webp, ico" \
+		--misc.clean_on_exit "true"
+
 # Clean up
 clean:
 	@echo "Cleaning up..."
 	@go clean
 	@rm -rf $(GOBIN)/server
+	@rm -rf ${GOBIN}
 
 # Build Docker image
 docker-build:

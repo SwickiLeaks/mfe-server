@@ -3,6 +3,7 @@ package mfehandlers
 import (
 	"mfeserver/internal/utils"
 	"net/http"
+	"path/filepath"
 )
 
 // Convenient typing
@@ -14,32 +15,17 @@ func HealthCheck() http.Handler {
 		resp := M{
 			"status":  "available",
 			"message": "healthy",
-			"data":    M{"hello": "beautiful"},
-		}
-		utils.WriteJSON(rw, http.StatusOK, resp)
-	})
-}
-
-// Server Health Check endpoint
-func PostHealthCheck() http.Handler {
-	return http.HandlerFunc(func(rw http.ResponseWriter, _ *http.Request) {
-		resp := M{
-			"status":  "available",
-			"message": "healthy",
-			"data":    M{"hello": "post"},
+			"data":    M{"hello": "updated"},
 		}
 		utils.WriteJSON(rw, http.StatusOK, resp)
 	})
 }
 
 // Render appshells
-func RenderAppShells() http.Handler {
-	return http.HandlerFunc(func(rw http.ResponseWriter, _ *http.Request) {
-		resp := M{
-			"status":  "available",
-			"message": "healthy",
-			"data":    M{"render": "appshells"},
-		}
-		utils.WriteJSON(rw, http.StatusOK, resp)
+func RenderAppShells() http.HandlerFunc {
+	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+		staticDir := "./static"
+		indexPath := filepath.Join(staticDir, "index.html")
+		http.ServeFile(rw, r, indexPath)
 	})
 }
