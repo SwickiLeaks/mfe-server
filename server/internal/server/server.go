@@ -11,6 +11,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -31,9 +32,9 @@ func NewServer() *Server {
 		router: mux.NewRouter().StrictSlash(true),
 	}
 
-	// TODO: Setup routes
+	s.routes()
 
-	s.server.Handler = s.router
+	s.server.Handler = handlers.CORS()(s.router)
 	return &s
 }
 
@@ -46,10 +47,9 @@ func (s *Server) Run(port string) {
 		port = ":" + port
 	}
 	s.server.Addr = port
-	log.Printf("server starting on %s\n", port)
 
 	go func() {
-		log.Println("Server running on port: ", s.server.Addr)
+		log.Println("Server starting on port: ", s.server.Addr)
 		if err := s.server.ListenAndServe(); err != http.ErrServerClosed {
 			log.Fatal("HTTP Server Error")
 		}
